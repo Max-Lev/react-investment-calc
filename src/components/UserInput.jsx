@@ -1,28 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Input from './Input';
-export default function UserInput({ onCalculate, investmentValue, setInvestmentValue, ...props }) {
-
-    const [userIput, setUserInput] = useState({
-        initialInvestment: 10000,
-        annualInvestment: 1200,
-        expectedReturn: 6,
-        duration: 10,
-    });
-
-    useEffect(() => {
-        console.log('effect userIput', userIput);
-    }, [userIput]);
-
-
-    // This function is called when the sum input field is changed
-    const handleChange = (inputIdentifier, event) => {
-        const { value } = event.target;
-        console.log(inputIdentifier, value)
-        setUserInput((prevState) => ({
-            ...prevState,
-            [inputIdentifier]: Number(value)
-        }));
-    }
+export default function UserInput({userInput,onUserInput  }) {
 
     return <>
         <section id="user-input">
@@ -30,30 +8,30 @@ export default function UserInput({ onCalculate, investmentValue, setInvestmentV
                 <p>
                     <label>Initial Investment</label>
                     <Input required type="number" id="investment"
-                        value={userIput.initialInvestment}
-                        onChange={(e) => handleChange("initialInvestment", e)} />
+                        value={userInput.initialInvestment}
+                        onChange={(e) => onUserInput("initialInvestment", e)} />
                 </p>
                 <p>
                     <label>Annual Investment</label>
                     <Input required type="number" id="annual"
-                        value={userIput.annualInvestment}
-                        onChange={(e) => handleChange("annualInvestment", e)} />
+                        value={userInput.annualInvestment}
+                        onChange={(e) => onUserInput("annualInvestment", e)} />
                 </p>
             </div>
             <div className="input-group">
                 <p>
                     <Input required type="number" id="expected-return"
-                        value={userIput.expectedReturn}
-                        subTitle = {<label>Expected Return Sub</label>}
-                        onChange={(e) => handleChange("expectedReturn", e)}>
+                        value={userInput.expectedReturn}
+                        subtitle = {<label>Expected Return Sub</label>}
+                        onChange={(e) => onUserInput("expectedReturn", e)}>
                         {<label>Expected Return</label>}
                     </Input>
                 </p>
                 <p>
                     <label>Duration</label>
                     <Input required type="number" id="duration"
-                        value={userIput.duration}
-                        onChange={(e) => handleChange("duration", e)}>
+                        value={userInput.duration}
+                        onChange={(e) => onUserInput("duration", e)}>
                     </Input>
                 </p>
             </div>

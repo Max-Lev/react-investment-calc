@@ -1,4 +1,4 @@
-export default function Input({ label, value, onChange, children,sub: subTitle, ...props }) {
+export default function Input({ label, value, onChange, children,sub: subtitle, ...props }) {
 
     const isChildrenContent = (children) => {
         if (children) {
@@ -16,6 +16,6 @@ export default function Input({ label, value, onChange, children,sub: subTitle, 
                 value={value}
                 onChange={onChange}
             />
-            {subTitle}
+            {subtitle}
     </>
 }
