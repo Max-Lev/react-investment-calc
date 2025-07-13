@@ -1,21 +1,23 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header.jsx';
 import UserInput from './components/UserInput.jsx';
 function App() {
-  const [amountValue, setAmountValue] = useState(500);
-  
+  const [investmentValue, setInvestmentValue] = useState(500);
+
   useEffect(() => {
-    console.log('effect amountValue',amountValue);
-  }, [amountValue]);
+    console.log('effect investmentValue', investmentValue);
+  }, [investmentValue]);
 
   const setAmountHandler = (amount) => {
-    setAmountValue(amount);
+    setInvestmentValue(amount);
   }
-  
+
 
   return <>
     <Header />
-    <UserInput amountValue={amountValue} setAmountValue={setAmountHandler} />
+    <UserInput
+      investmentValue={investmentValue}
+      setInvestmentValue={setAmountHandler} />
   </>;
 }
 

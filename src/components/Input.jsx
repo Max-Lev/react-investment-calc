@@ -1,21 +1,21 @@
-export default function Input({ label, value, onChange, children, ...props }) {
+export default function Input({ label, value, onChange, children,sub: subTitle, ...props }) {
 
     const isChildrenContent = (children) => {
         if (children) {
             return children;
-        } else {
-            return <label htmlFor={label}>{label}</label>
-        }
+        } 
+        // else {
+        //     return <label htmlFor={props.id}>{props.id}</label>
+        // }
     }
 
     return <>
-        <div>
             {isChildrenContent(children)}
             <input
                 {...props}
                 value={value}
                 onChange={onChange}
             />
-        </div>
+            {subTitle}
     </>
 }
